@@ -89,7 +89,7 @@ Also make sure that the frontend still works locally.
 
 https://glacial-bastion-22690.herokuapp.com/
 
-<!-- ## 3.12 Command-line database
+## 3.12 Command-line database
 
 Create a cloud-based MongoDB database for the phonebook application with MongoDB Atlas.
 
@@ -98,7 +98,7 @@ Create a _mongo.js_ file in the project directory, that can be used for adding e
 The application should work as follows. You use the program by passing three command-line arguments (the first is the _database password_, 2nd is _name_, 3rd is _number_)
 
 ```javascript
-node mongo.js DB_PASSWORD Anna 040-1234556
+node mongo.js DB_PASS Anna 040-1234556
 ```
 
 As a result, the application will print
@@ -116,7 +116,7 @@ Arto Vihavainen 045-1232456
 Ada Lovelace 040-1231236
 ```
 
-## 3.13 Phonebook database, step1
+<!-- ## 3.13 Phonebook database, step1
 
 Change the fetching of all phonebook entries so that the data is _fetched from the database_.
 
