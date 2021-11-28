@@ -1,9 +1,9 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
+const Person = require("./models/person");
 const cors = require("cors");
 const morgan = require("morgan");
-const Person = require("./models/person");
 
 morgan.token("reqJSON", (req) => JSON.stringify(req.body));
 
@@ -50,20 +50,17 @@ app.delete("/api/persons/:id", (req, res, next) => {
     .catch((err) => next(err));
 });
 
-app.post("/api/persons", (req, res) => {
-  const body = req.body;
-  if (body.name && body.number === undefined) {
-    return res
-      .status(400)
-      .json({ err: "person info to be saved are incomplete." });
-  }
-
+app.post("/api/persons", (req, res, next) => {
   const newPerson = new Person({
-    name: body.name,
-    number: body.number,
+    name: req.body.name,
+    number: req.body.number,
   });
 
-  newPerson.save().then((savedPerson) => res.json(savedPerson));
+  newPerson
+    .save()
+    .then((savedResult) => savedResult.toJSON())
+    .then((savedAndFormattedResult) => res.json(savedAndFormattedResult))
+    .catch((err) => next(err));
 });
 
 app.put("/api/persons/:id", (req, res, next) => {
@@ -72,7 +69,11 @@ app.put("/api/persons/:id", (req, res, next) => {
     number: req.body.number,
   };
 
-  Person.findByIdAndUpdate(req.params.id, updatePerson, { new: true })
+  Person.findByIdAndUpdate(req.params.id, updatePerson, {
+    new: true,
+    runValidators: true,
+    context: "query",
+  })
     .then((updatedResult) => res.json(updatedResult))
     .catch((err) => next(err));
 });
@@ -87,6 +88,8 @@ const errorHandler = (err, req, res, next) => {
 
   if (err.name === "CastError") {
     return res.status(400).send({ err: "malformatted id" });
+  } else if (err.name === "ValidationError") {
+    return res.status(400).json({ err: err.message });
   }
 
   next(err);
