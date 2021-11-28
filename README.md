@@ -116,7 +116,7 @@ Arto Vihavainen 045-1232456
 Ada Lovelace 040-1231236
 ```
 
-<!-- ## 3.13 Phonebook database, step1
+## 3.13 Phonebook database, step1
 
 Change the fetching of all phonebook entries so that the data is _fetched from the database_.
 
@@ -128,7 +128,7 @@ Change the backend so that new numbers are _saved to the database_. Verify that 
 
 At this point, you can choose to simply allow users to create all phonebook entries. At this stage, the phonebook can have multiple entries for a person with the same name.
 
-## 3.15 Phonebook database, step3
+<!-- ## 3.15 Phonebook database, step3
 
 Change the backend so that deleting phonebook entries is reflected in the database.
 
