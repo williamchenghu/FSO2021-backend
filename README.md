@@ -128,7 +128,7 @@ Change the backend so that new numbers are _saved to the database_. Verify that 
 
 At this point, you can choose to simply allow users to create all phonebook entries. At this stage, the phonebook can have multiple entries for a person with the same name.
 
-<!-- ## 3.15 Phonebook database, step3
+## 3.15 Phonebook database, step3
 
 Change the backend so that deleting phonebook entries is reflected in the database.
 
@@ -150,7 +150,7 @@ Verify that the frontend works after making your changes.
 
 Update the handling of the _api/persons/:id_ and _info_ routes to use the database, and verify that they work directly with the browser, Postman, or VS Code REST client.
 
-## 3.19 Phonebook database, step7
+<!-- ## 3.19 Phonebook database, step7
 
 Add validation to your phonebook application, that will make sure that a newly added person has a unique name.
 
