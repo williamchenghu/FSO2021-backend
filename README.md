@@ -56,7 +56,7 @@ Respond to requests like these with the appropriate status code, and also send b
 
 ## Step 7
 
-Add the [morgan](https://github.com/expressjs/morgan "expressjs/morgan") middleware to your application for logging. Configure it to log messages to your console based on the _tiny_ configuration.
+Add the [morgan](https://github.com/expressjs/morgan 'expressjs/morgan') middleware to your application for logging. Configure it to log messages to your console based on the _tiny_ configuration.
 
 ## Step 8
 
@@ -64,8 +64,8 @@ Configure morgan so that it also shows the data sent in HTTP POST requests
 
 This exercise can be completed in a few different ways. One of the possible solutions utilizes these two techniques:
 
-- [creating new tokens](https://github.com/expressjs/morgan#creating-new-tokens "Morgan with new Tokens")
-- [JSON.stringify](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify "JSON Stringify")
+- [creating new tokens](https://github.com/expressjs/morgan#creating-new-tokens 'Morgan with new Tokens')
+- [JSON.stringify](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify 'JSON Stringify')
 
 ## Step 9
 
@@ -180,3 +180,5 @@ Push the latest version to Heroku and verify that everything works there as well
 ## 3.22 Lint configuration
 
 Add ESlint to your application and fix all the warnings.
+
+## ADDITIONAL Re-organize folder structure
