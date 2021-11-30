@@ -35,7 +35,7 @@ personsRouter.delete('/:id', (req, res, next) => {
 personsRouter.post('/', (req, res, next) => {
   const newPerson = new Person({
     name: req.body.name,
-    number: req.body.number
+    number: req.body.number,
   });
 
   newPerson
@@ -48,13 +48,13 @@ personsRouter.post('/', (req, res, next) => {
 personsRouter.put('/:id', (req, res, next) => {
   const updatePerson = {
     name: req.body.name,
-    number: req.body.number
+    number: req.body.number,
   };
 
   Person.findByIdAndUpdate(req.params.id, updatePerson, {
     new: true,
     runValidators: true,
-    context: 'query'
+    context: 'query',
   })
     .then((updatedResult) => res.json(updatedResult))
     .catch((err) => next(err));

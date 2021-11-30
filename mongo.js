@@ -17,14 +17,14 @@ mongoose.connect(url);
 
 const personSchema = new mongoose.Schema({
   name: String,
-  number: String
+  number: String,
 });
 
 const Person = mongoose.model('Person', personSchema);
 
 const person = new Person({
   name: newPersonName,
-  number: newPersonNumber
+  number: newPersonNumber,
 });
 
 if (newPersonName && newPersonNumber) {
@@ -34,7 +34,7 @@ if (newPersonName && newPersonNumber) {
   });
 } else {
   Person.find({}).then((result) => {
-    console.log(`phonebook:`);
+    console.log('phonebook:');
     result.forEach((e) => console.log(`${e.name} ${e.number}`));
     mongoose.connection.close();
   });

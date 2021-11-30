@@ -9,11 +9,11 @@ const personsRouter = require('./controllers/persons');
 const middleware = require('./utils/middleware');
 const logger = require('./utils/logger');
 
-console.log(`connecting to`, config.MONGODB_URI);
+logger.log('connecting to MongoDB');
 mongoose
   .connect(config.MONGODB_URI)
-  .then(() => logger.log(`connected to MongoDB`))
-  .catch((err) => logger.error(`error connecting to MongoDB:`, err.message));
+  .then(() => logger.log('connected to MongoDB'))
+  .catch((err) => logger.error('error connecting to MongoDB:', err.message));
 
 morgan.token('reqJSON', (req) => JSON.stringify(req.body));
 
